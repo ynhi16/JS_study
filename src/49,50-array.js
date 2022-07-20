@@ -79,3 +79,43 @@ var totalCoin = courses.reduce(function(total, course) {
     return total + course.coin;
 }, 0);
 console.log(totalCoin);
+
+//Flat
+var depthArray = [1, 2, [3, 4], 5, 6, [7, 8, 9]];
+var flatArray = depthArray.reduce(function(flatOutput, depthOutput) {
+    return flatOutput.concat(depthOutput);
+}, [])
+console.log(flatArray);
+
+// lấy ra khóa học đưa vào mảng mới
+var topics = [{
+        topic: "Front-end",
+        courses: [{
+            id: 1,
+            name: 'Javascript',
+            coin: 250,
+        }, {
+            id: 2,
+            name: 'HTML, CSS',
+            coin: 0,
+        }]
+
+    },
+    {
+        topic: "Back-end",
+        courses: [{
+            id: 1,
+            name: 'PHP',
+            coin: 250,
+        }, {
+            id: 2,
+            name: 'NodeJs',
+            coin: 0,
+        }]
+    }
+];
+
+var newCourse = topics.reduce(function(listCourse, courseItem) {
+    return listCourse.concat(courseItem.courses);
+}, [])
+console.log(newCourse);
